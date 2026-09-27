@@ -1,0 +1,509 @@
+/* =========================
+   Premium Theme (Home-like)
+   Replace old style.css بالكامل
+   ========================= */
+
+:root{
+  --gold:#C0C000;
+  --gold2:#D0D08A;
+
+  --ink:#141414;
+  --muted:#5b5b5b;
+
+  --bg1:#f6f7fb;
+  --bg2:#eef1f9;
+
+  --line: rgba(0,0,0,.10);
+  --line2: rgba(0,0,0,.14);
+
+  --glass: rgba(255,255,255,.72);
+  --glass2: rgba(255,255,255,.84);
+
+  --shadow: 0 16px 50px rgba(0,0,0,.16);
+  --shadow2: 0 10px 26px rgba(0,0,0,.10);
+
+  --r:16px;
+  --r2:20px;
+}
+
+/* Base reset */
+*{ box-sizing: border-box; }
+html,body{ height:100%; }
+
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  color: var(--ink);
+  padding: 30px;
+
+  /* Home-ish background */
+  background:
+    radial-gradient(900px 520px at 20% 12%, rgba(192,192,0,.18), transparent 60%),
+    radial-gradient(900px 520px at 80% 18%, rgba(208,208,138,.24), transparent 60%),
+    linear-gradient(180deg, #ffffff, var(--bg1) 52%, var(--bg2));
+}
+
+/* Typography */
+h1,h2,h3{
+  margin: 0 0 12px 0;
+  letter-spacing: .2px;
+}
+h2{ font-size: 34px; }
+p{ margin: 0 0 12px 0; color: var(--muted); line-height: 1.55; }
+
+/* Links */
+a{
+  color:#111;
+  text-decoration: underline;
+  text-decoration-color: rgba(0,0,0,.35);
+}
+a:hover{
+  text-decoration-color: rgba(0,0,0,.70);
+}
+
+/* Layout helpers */
+.page-wide{
+  max-width: 1200px;
+  margin: 28px auto;
+  padding: 20px;
+}
+
+/* Main container used in register/login/assessment pages */
+.container{
+  width: min(760px, 100%);
+  margin: 22px auto;
+
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: var(--r2);
+
+  padding: 28px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+
+/* Slightly narrower auth container if you want it */
+.container.auth{
+  width: min(560px, 100%);
+}
+
+/* Topbar */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom: 18px;
+  gap: 12px;
+}
+
+/* Buttons */
+button{
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 12px;
+  margin-top: 18px;
+
+  background: linear-gradient(180deg, var(--gold), #b0b000);
+  color: #111;
+
+  font-weight: 800;
+  cursor: pointer;
+
+  box-shadow: 0 12px 22px rgba(0,0,0,.12);
+}
+
+button:hover{ filter: brightness(.985); }
+button:active{ transform: translateY(1px); }
+
+/* Small buttons / Back buttons */
+.smallbtn,
+.backbtn{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+
+  padding: 10px 14px;
+  border-radius: 999px;
+
+  background: rgba(0,0,0,.06);
+  border: 1px solid rgba(0,0,0,.10);
+
+  color:#333;
+  text-decoration: none;
+  font-weight: 800;
+}
+.smallbtn:hover,
+.backbtn:hover{ background: rgba(0,0,0,.09); }
+
+/* Danger button style (Logout, delete, etc.) */
+.danger{
+  background: linear-gradient(180deg, #ff4d5a, #d9363e) !important;
+  color: #fff !important;
+}
+
+/* Form */
+label{
+  display:block;
+  margin-top: 12px;
+  font-weight: 700;
+  color: #222;
+  font-size: 14px;
+}
+
+input, select, textarea{
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 6px;
+
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 12px;
+
+  outline: none;
+  background: rgba(255,255,255,.90);
+  color: #111;
+}
+
+textarea{ min-height: 110px; resize: vertical; }
+
+input:focus, select:focus, textarea:focus{
+  border-color: rgba(0,0,0,.35);
+  box-shadow: 0 0 0 4px rgba(192,192,0,.20);
+}
+
+/* Messages */
+.msg-error{
+  color:#b00020;
+  margin-top:10px;
+  font-weight: 700;
+}
+.msg-ok{
+  color:#0a7b2e;
+  margin-top:10px;
+  font-weight: 700;
+}
+
+/* Auth link line under forms */
+.link{
+  margin-top: 14px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Cards (dashboard items etc.) */
+.card{
+  background: var(--glass2);
+  border: 1px solid rgba(0,0,0,.10);
+  border-radius: 18px;
+
+  padding: 18px;
+  margin: 14px 0;
+
+  box-shadow: var(--shadow2);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 46px rgba(0,0,0,.14);
+}
+
+/* Pills / badges */
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap: 6px;
+
+  background: rgba(255,255,255,.70);
+  border: 1px solid rgba(0,0,0,.10);
+
+  padding: 7px 12px;
+  border-radius: 999px;
+
+  font-weight: 800;
+  color:#222;
+  box-shadow: 0 8px 16px rgba(0,0,0,.06);
+}
+
+/* Actions buttons on dashboard */
+.actions a{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+
+  margin: 10px 10px 0 0;
+  padding: 10px 12px;
+
+  border-radius: 999px;
+  font-weight: 900;
+  text-decoration: none;
+
+  color:#111;
+  background: linear-gradient(180deg, rgba(192,192,0,.95), rgba(176,176,0,.92));
+  border: 1px solid rgba(0,0,0,.12);
+
+  box-shadow: 0 10px 18px rgba(0,0,0,.10);
+}
+.actions a:hover{ transform: translateY(-1px); }
+
+/* Table */
+.table-wrap{
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table{
+  width: 100%;
+  border-collapse: collapse;
+
+  background: var(--glass2);
+  border-radius: 16px;
+  overflow: hidden;
+
+  box-shadow: 0 10px 22px rgba(0,0,0,.08);
+}
+
+.table th, .table td{
+  border: 1px solid rgba(0,0,0,.08);
+  padding: 10px;
+  text-align: center;
+}
+
+.table th{
+  background: rgba(192,192,0,.18);
+  color:#111;
+  font-weight: 900;
+}
+
+/* =========================
+   Assessment / Questions UI
+   Works even if you don't change HTML much
+   ========================= */
+
+/* Nice spacing for groups */
+fieldset{
+  border: 1px solid rgba(0,0,0,.10);
+  border-radius: 18px;
+  padding: 14px 14px 10px;
+  margin: 14px 0;
+  background: rgba(255,255,255,.70);
+  box-shadow: 0 10px 22px rgba(0,0,0,.06);
+}
+
+legend{
+  padding: 0 10px;
+  font-weight: 900;
+  color:#222;
+}
+
+/* Radio/checkbox styling */
+input[type="radio"], input[type="checkbox"]{
+  width: 16px;
+  height: 16px;
+  accent-color: var(--gold);
+}
+
+/* If your options are inside labels, make them pill-like */
+label.option,
+.option{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin: 8px 10px 0 0;
+  padding: 10px 12px;
+
+  border-radius: 999px;
+  background: rgba(0,0,0,.05);
+  border: 1px solid rgba(0,0,0,.10);
+
+  cursor: pointer;
+  font-weight: 800;
+  color:#222;
+}
+
+/* Support Arabic layout if page uses Arabic */
+.rtl, [dir="rtl"]{
+  direction: rtl;
+  text-align: right;
+}
+.rtl .option, [dir="rtl"] .option{
+  margin: 8px 0 0 10px;
+}
+
+/* =========================
+   Header/Nav if you are using it
+   (Won't break pages if not used)
+   ========================= */
+.nav{
+  width: min(1200px, 100%);
+  margin: 0 auto 18px;
+  background: rgba(255,255,255,.70);
+  border: 1px solid rgba(0,0,0,.10);
+  border-radius: 16px;
+  padding: 12px 16px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.08);
+}
+
+.nav__inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 14px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  font-weight: 900;
+}
+
+.brand__logo{
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(192,192,0,.22);
+  border: 1px solid rgba(0,0,0,.10);
+  display:grid;
+  place-items:center;
+  font-weight: 900;
+}
+
+.nav__links{
+  display:flex;
+  gap: 14px;
+  align-items:center;
+  flex-wrap: wrap;
+}
+
+.nav__links a{
+  text-decoration: none;
+  font-weight: 900;
+  color:#222;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.nav__links a:hover{
+  background: rgba(0,0,0,.06);
+  border-color: rgba(0,0,0,.08);
+}
+
+/* Footer (optional) */
+.footer{
+  width: min(1200px, 100%);
+  margin: 18px auto 0;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.60);
+  border: 1px solid rgba(0,0,0,.10);
+  color: rgba(0,0,0,.55);
+  box-shadow: 0 10px 22px rgba(0,0,0,.06);
+}
+
+/* Responsive */
+@media (max-width: 700px){
+  body{ padding: 16px; }
+  .container{ padding: 18px; }
+  h2{ font-size: 28px; }
+  .nav__inner{ align-items: flex-start; flex-direction: column; }
+}
+
+.reward-banner {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 14px;
+  margin: 15px auto;
+  background: #fffbe6;
+  border: 2px solid #C0C000;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.admin-wrap{
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 18px;
+}
+
+.admin-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom: 14px;
+}
+
+.admin-title{
+  margin:0;
+  font-size: 34px;
+  letter-spacing: .2px;
+}
+
+.admin-cards{
+  display:flex;
+  flex-direction:column;
+  gap: 12px;
+}
+
+.admin-card{
+  display:flex;
+  align-items:center;
+  gap: 14px;
+  padding: 16px 18px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 16px;
+  text-decoration:none;
+  color: inherit;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+  transition: transform .08s ease, box-shadow .12s ease;
+}
+
+.admin-card:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+}
+
+.admin-card-icon{
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(192,192,0,.18);
+  font-size: 22px;
+}
+
+.admin-card-title{
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+
+.admin-card-sub{
+  font-size: 13px;
+  opacity: .75;
+}
+
+.admin-card-arrow{
+  margin-left:auto;
+  font-size: 28px;
+  opacity: .35;
+}
+
+.btn{
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: #f8f8f8;
+  text-decoration:none;
+  color: inherit;
+  display:inline-block;
+}
+.btn-ghost{
+  background: rgba(255,255,255,.65);
+}
